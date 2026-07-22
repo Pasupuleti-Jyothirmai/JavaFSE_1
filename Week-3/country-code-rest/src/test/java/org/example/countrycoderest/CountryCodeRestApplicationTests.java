@@ -1,0 +1,13 @@
+package org.example.countrycoderest;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class CountryCodeRestApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}

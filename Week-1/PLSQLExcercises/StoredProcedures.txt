@@ -1,0 +1,30 @@
+CREATE OR REPLACE PROCEDURE GetEmployeeDetails(
+    p_emp_id IN NUMBER
+)
+AS
+    v_name employees.employee_name%TYPE;
+    v_salary employees.salary%TYPE;
+BEGIN
+    SELECT employee_name, salary
+    INTO v_name, v_salary
+    FROM employees
+    WHERE employee_id = p_emp_id;
+
+    DBMS_OUTPUT.PUT_LINE('Employee Name: ' || v_name);
+    DBMS_OUTPUT.PUT_LINE('Salary: ' || v_salary);
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('Employee not found.');
+END;
+/
+
+
+
+--to execute the procedure
+SET SERVEROUTPUT ON;
+
+BEGIN
+    GetEmployeeDetails(101);
+END;
+/
